@@ -4,40 +4,15 @@ import { Strategy as LocalStrategy } from 'passport-local'
 import {
   authMiddleware,
   errorMiddleware,
-  redisClient,
-  RedisStore,
-  session,
   database,
+  configSession,
 } from '@mds/common'
 import authRouter from './routes/auth'
-
-declare global {
-  namespace Express {
-    export interface User {
-      id: string
-      email: string
-    }
-  }
-}
 
 const app = express()
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-
-app.use(
-  session({
-    store: new RedisStore({ client: redisClient }),
-    secret: 'secret',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      secure: false,
-      httpOnly: true,
-      maxAge: 1000 * 60 * 10,
-    },
-  })
-)
 
 passport.use(
   new LocalStrategy({ usernameField: 'email' }, (username, password, done) => {
@@ -64,8 +39,7 @@ passport.deserializeUser((user, done) => {
   done(null, user as Express.User)
 })
 
-app.use(passport.initialize())
-app.use(passport.session())
+configSession(app, passport)
 
 app.use(authRouter)
 
@@ -77,7 +51,7 @@ app.get('/me', (req, res) => {
 
 app.use(errorMiddleware)
 
-// @ts-ignore
 app.listen(process.env.port || 3000, () => {
+  // eslint-disable-next-line no-console
   console.log('Application start ons port 3000!')
 })
