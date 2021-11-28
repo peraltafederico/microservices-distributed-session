@@ -12,7 +12,7 @@
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
-    "project": "./packages/common/tsconfig.json"
+    "project": "./packages/transactions-service/tsconfig.json"
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {

@@ -3,9 +3,9 @@
     "target": "ESNext",
     "lib": ["ESNext"],
     "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./",
-    "baseUrl": "./",
     "esModuleInterop": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./",
   }
 }

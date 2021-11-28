@@ -9,10 +9,13 @@ export const redisClient = redis.createClient({
   port: 6379,
 })
 
-redisClient.on('error', function (err) {
+redisClient.on('error', (err) => {
+  // eslint-disable-next-line no-console
   console.log(`Could not establish a connection with redis. ${err}`)
 })
-redisClient.on('connect', function (err) {
+
+redisClient.on('connect', () => {
+  // eslint-disable-next-line no-console
   console.log('Connected to redis successfully')
 })
 

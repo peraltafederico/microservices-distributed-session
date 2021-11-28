@@ -125,7 +125,7 @@
     "@types/connect" "*"
     "@types/node" "*"
 
-"@types/connect-redis@0.0.17":
+"@types/connect-redis@^0.0.17":
   version "0.0.17"
   resolved "https://registry.yarnpkg.com/@types/connect-redis/-/connect-redis-0.0.17.tgz#657e13c22dd9ad1a0486ebf8f8df66aebce617e4"
   integrity sha512-6apVqZFTMspIWwjGPfip7fKP+6Sl3M589DuYuYtzyc+Fzn2fnZqtQQ2o/UfwDlLh6zxq0RAnFbW3Mx1+2Nuh0w==
