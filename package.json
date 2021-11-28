@@ -5,5 +5,9 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "@package/auth": "yarn --cwd packages/auth-service dev",
+    "@package/transactions": "yarn --cwd packages/transactions-service dev"
+  }
 }
